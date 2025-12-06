@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>XTTS v2 — Interface Web locale de clonage vocal</title>
+  <meta name="description" content="Interface web locale pour clonage vocal et synthèse multilingue avec XTTS v2, exécutée en local sur Windows." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header class="hero">
+    <div class="container">
+      <span class="badge">Local • Windows • XTTS v2</span>
+      <h1>XTTS v2 — Interface Web locale de clonage vocal</h1>
+      <p class="subtitle">
+        Une interface web élégante et pédagogique inspirée de l’expérience “studio” moderne,
+        conçue pour exécuter <strong>XTTS v2 (Coqui TTS)</strong> en local et cloner sa propre voix
+        de manière responsable.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn primary" href="../INSTALLATION_ETUDIANTS.md">Installation ultra guidée</a>
+        <a class="btn ghost" href="../FAQ.md">FAQ</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container grid-2">
+        <div class="card">
+          <h2>Ce que fait ce projet</h2>
+          <ul>
+            <li>Interface web locale avec <strong>Mode Simple</strong> et <strong>Mode Avancé</strong>.</li>
+            <li>Clonage vocal à partir d’un <strong>WAV de référence</strong>.</li>
+            <li>Synthèse multilingue avec choix de la langue de sortie.</li>
+            <li>Presets adaptés à des usages pédagogiques et professionnels.</li>
+            <li>Export audio en <code>.wav</code> dans un dossier local <code>outputs/</code>.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>À qui ça s’adresse</h2>
+          <ul>
+            <li>Enseignants et étudiants souhaitant explorer la TTS localement.</li>
+            <li>Créateurs de contenus et podcasteurs en environnement contrôlé.</li>
+            <li>Professionnels souhaitant prototyper des usages voix en interne.</li>
+          </ul>
+          <p class="note">
+            L’objectif est la compréhension, la maîtrise et l’expérimentation responsable,
+            pas la reproduction de voix de tiers sans consentement.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section subtle">
+      <div class="container">
+        <div class="card">
+          <h2>Guides principaux</h2>
+          <div class="list-links">
+            <a href="../INSTALLATION_ETUDIANTS.md">📘 Installation ultra guidée (étudiants)</a>
+            <a href="../FAQ.md">🧩 FAQ complète</a>
+            <a href="../xtts_web_ui_pro.py">🧠 Script principal : xtts_web_ui_pro.py</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-3">
+        <div class="card">
+          <h3>Matériel recommandé</h3>
+          <p>
+            Pour une expérience fluide :
+          </p>
+          <ul>
+            <li>GPU NVIDIA avec <strong>8 Go de VRAM minimum</strong> (12+ idéal).</li>
+            <li>RAM <strong>16 Go</strong> minimum (32 Go conseillé).</li>
+            <li>SSD pour accélérer les chargements.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Qualité de la voix de référence</h3>
+          <ul>
+            <li>Micro correct + environnement calme.</li>
+            <li>Pas de saturation, peu de réverbération.</li>
+            <li>30s à 2min propres suffisent souvent.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Usage responsable</h3>
+          <ul>
+            <li>Clone ta propre voix ou une voix autorisée.</li>
+            <li>Indique clairement l’usage d’une voix synthétique si nécessaire.</li>
+            <li>Respecte les règles légales et éthiques.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section subtle">
+      <div class="container">
+        <div class="card">
+          <h2>Auteur</h2>
+          <p>
+            <strong>Mohamed Amine EL AFRIT</strong><br/>
+            Ressources et projets : <a href="https://www.mohamedelafrit.com" target="_blank" rel="noopener">www.mohamedelafrit.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <h2>Licence</h2>
+          <p>
+            Ce projet est diffusé sous <strong>licence Creative Commons</strong>.
+            Dans une démarche académique et professionnelle, la recommandation par défaut
+            est la licence <strong>CC BY 4.0 (Attribution)</strong>, autorisant la réutilisation,
+            la distribution et l’adaptation, y compris à des fins commerciales,
+            sous réserve de citer l’auteur.
+          </p>
+          <p>
+            Citation recommandée :
+          </p>
+          <blockquote>
+            Mohamed Amine EL AFRIT, <em>XTTS v2 — Interface Web locale de clonage vocal</em>,
+            projet disponible sur GitHub, www.mohamedelafrit.com.
+          </blockquote>
+          <p class="note">
+            Si vous souhaitez restreindre la réutilisation commerciale,
+            vous pouvez adopter une variante telle que <strong>CC BY-NC 4.0</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>© <span id="year"></span> Mohamed Amine EL AFRIT — XTTS v2 local UI</span>
+      <span class="dot">•</span>
+      <a href="https://www.mohamedelafrit.com" target="_blank" rel="noopener">www.mohamedelafrit.com</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
