@@ -258,21 +258,22 @@ Consulte : **FAQ.md**
 
 ## Licence
 
-Ce projet est diffusé sous **licence Creative Commons**.
-
-Dans une démarche académique et professionnelle, la recommandation par défaut est :  
+Ce projet est distribué sous la licence  
 **Creative Commons Attribution 4.0 International (CC BY 4.0)**.
 
-Cette licence autorise la réutilisation, la distribution et l’adaptation,
-y compris à des fins commerciales, **à condition de citer l’auteur**.
+En bref, vous êtes autorisé à :
+- **Partager** — copier et redistribuer le contenu,
+- **Adapter** — remixer, transformer et développer,
 
-**Citation recommandée :**
+**à condition de citer l’auteur** et d’indiquer les éventuelles modifications.
 
-> Mohamed Amine EL AFRIT, *XTTS v2 — Interface Web locale de clonage vocal*,  
-> projet disponible sur GitHub, www.mohamedelafrit.com.
+Le texte complet de la licence est disponible dans le fichier [`LICENSE`](./LICENSE).
 
-Si vous souhaitez limiter l’usage commercial,
-une variante telle que **CC BY-NC 4.0** peut être envisagée.
+**Citation recommandée :**  
+> Mohamed Amine EL AFRIT, *XTTS v2 — Interface Web locale de clonage vocal (Windows)*,  
+> projet disponible sur GitHub, https://www.mohamedelafrit.com,  
+> sous licence CC BY 4.0.
+
 
 ---
 
@@ -288,3 +289,5 @@ Site : [www.mohamedelafrit.com](https://www.mohamedelafrit.com)
 - Coqui TTS / XTTS v2
 - PyTorch
 - Gradio
+
+![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
