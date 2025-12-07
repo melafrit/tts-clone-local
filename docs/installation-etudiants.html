@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Installation étudiants — XTTS v2 (Windows)</title>
+  <meta name="description" content="Guide d'installation ultra guidé pour lancer une interface web locale de clonage vocal avec XTTS v2 sur Windows." />
+
+  <!-- Optionnel : si tu as un styles.css global dans /docs -->
+  <!-- <link rel="stylesheet" href="styles.css" /> -->
+
+  <style>
+    :root{
+      --bg:#0f172a;           /* slate-900 */
+      --panel:#111827;        /* gray-900 */
+      --muted:#94a3b8;        /* slate-400 */
+      --text:#f8fafc;         /* slate-50 */
+      --accent:#38bdf8;       /* sky-400 */
+      --accent-2:#a78bfa;     /* violet-400 */
+      --ok:#22c55e;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --code:#0b1020;
+      --border:rgba(255,255,255,.08);
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(56,189,248,.18), transparent 55%),
+        radial-gradient(900px 500px at 90% 0%, rgba(167,139,250,.18), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .container{max-width:1100px; margin:0 auto; padding:28px 20px 80px}
+    .nav{
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+      padding:14px 18px; background:rgba(255,255,255,.04);
+      border:1px solid var(--border); border-radius:var(--radius);
+      backdrop-filter: blur(8px);
+    }
+    .nav-left{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; font-size:12px; color:var(--muted);
+      border:1px solid var(--border); border-radius:999px;
+      background:rgba(255,255,255,.03);
+    }
+    .nav-links{display:flex; gap:10px; flex-wrap:wrap}
+    .nav-links a{
+      padding:6px 10px; border-radius:10px; border:1px solid transparent;
+      color:var(--text); opacity:.9;
+    }
+    .nav-links a:hover{
+      border-color:var(--border); background:rgba(255,255,255,.04);
+      text-decoration:none;
+    }
+
+    .hero{
+      margin-top:22px;
+      padding:26px 26px 22px;
+      background:linear-gradient(135deg, rgba(56,189,248,.10), rgba(167,139,250,.10));
+      border:1px solid var(--border);
+      border-radius:calc(var(--radius) + 6px);
+      box-shadow:var(--shadow);
+    }
+    .hero h1{margin:0 0 6px; font-size:32px}
+    .hero p{margin:6px 0 0; color:var(--muted)}
+
+    .grid{
+      margin-top:22px;
+      display:grid; gap:18px;
+      grid-template-columns: 1.1fr .9fr;
+    }
+    @media (max-width: 920px){
+      .grid{grid-template-columns: 1fr}
+    }
+
+    .card{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:20px 20px 18px;
+      box-shadow:var(--shadow);
+    }
+    .card h2{margin:0 0 10px; font-size:20px}
+    .card h3{margin:18px 0 6px; font-size:16px}
+    .muted{color:var(--muted)}
+    .small{font-size:12.5px}
+
+    .badge{
+      display:inline-flex; align-items:center;
+      padding:4px 8px; font-size:11px; font-weight:600;
+      border-radius:8px; border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+    }
+    .ok{color:var(--ok)}
+    .warn{color:var(--warn)}
+    .danger{color:var(--danger)}
+
+    .toc a{display:block; padding:6px 0; color:var(--text); opacity:.9}
+    .toc a span{color:var(--muted)}
+
+    pre{
+      background:var(--code);
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:14px 14px;
+      overflow:auto;
+      margin:10px 0 14px;
+    }
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:12.5px}
+
+    ul{margin:8px 0 14px; padding-left:20px}
+    li{margin:4px 0}
+
+    .step{
+      border-left:3px solid rgba(56,189,248,.45);
+      padding-left:12px; margin:12px 0 18px;
+    }
+
+    .callout{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.035);
+      border-radius:12px;
+      padding:12px 12px 10px;
+      margin:10px 0 14px;
+    }
+
+    .footer{
+      margin-top:28px;
+      text-align:center; color:var(--muted);
+      font-size:12.5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="nav">
+      <div class="nav-left">
+        <div class="brand">
+          <span class="pill">XTTS v2</span>
+          <span>Clonage vocal local</span>
+        </div>
+        <span class="pill small">Windows • Python 3.11 • Gradio</span>
+      </div>
+      <div class="nav-links small">
+        <a href="./index.html">Accueil</a>
+        <a href="./installation-etudiants.html">Installation</a>
+        <a href="./faq.html">FAQ</a>
+        <a href="../README.md">README</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <h1>Installation ultra guidée (Étudiants)</h1>
+      <p>
+        Objectif : installer et lancer une interface web locale pour
+        <strong>cloner ta propre voix</strong> et générer de la synthèse multilingue avec
+        <strong>XTTS v2 (Coqui TTS)</strong>, sur Windows.
+      </p>
+      <p class="muted small">
+        Auteur du projet : Mohamed Amine EL AFRIT — <a href="https://www.mohamedelafrit.com">www.mohamedelafrit.com</a>
+      </p>
+    </section>
+
+    <div class="grid">
+
+      <!-- Colonne principale -->
+      <main class="card">
+        <h2 id="objectif">1) Ce que tu vas obtenir</h2>
+        <ul>
+          <li>Un environnement Python propre et isolé (venv)</li>
+          <li>PyTorch installé (CPU ou GPU)</li>
+          <li>Coqui TTS + Gradio</li>
+          <li>Une interface web locale sur <code>http://127.0.0.1:7860</code></li>
+        </ul>
+
+        <h2 id="prerequis">2) Prérequis</h2>
+        <ul>
+          <li><strong>Windows 10/11</strong> 64 bits</li>
+          <li><strong>Python 3.11.x recommandé</strong></li>
+          <li>RAM : 16 Go minimum (32 Go conseillé)</li>
+          <li>GPU NVIDIA 8–12 Go VRAM conseillé (sinon CPU ok)</li>
+        </ul>
+
+        <div class="callout small">
+          <span class="badge ok">Conseil</span>
+          <span class="muted">
+            Évite Python 3.12/3.13/3.14 pour ce projet si tu veux minimiser les erreurs de dépendances.
+          </span>
+        </div>
+
+        <h2 id="python">3) Installer Python 3.11</h2>
+        <div class="step">
+          <ol>
+            <li>Télécharge Python 3.11 depuis le site officiel.</li>
+            <li>À l’installation, coche <strong>Add Python to PATH</strong>.</li>
+            <li>Vérifie :</li>
+          </ol>
+          <pre><code>python --version
+pip --version</code></pre>
+        </div>
+
+        <h2 id="dossier">4) Créer le dossier du projet</h2>
+        <pre><code>mkdir C:\TTS
+cd C:\TTS</code></pre>
+
+        <h2 id="venv">5) Créer et activer un environnement virtuel</h2>
+        <pre><code>python -m venv venv
+.\venv\Scripts\Activate.ps1</code></pre>
+
+        <div class="callout small">
+          <span class="badge warn">Si blocage PowerShell</span>
+          <pre><code>Set-ExecutionPolicy -Scope CurrentUser RemoteSigned</code></pre>
+        </div>
+
+        <h2 id="pip">6) Mettre à jour pip</h2>
+        <pre><code>python -m pip install --upgrade pip</code></pre>
+
+        <h2 id="torch">7) Installer PyTorch</h2>
+
+        <h3>7.1 Avec GPU NVIDIA (recommandé)</h3>
+        <pre><code>pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118</code></pre>
+
+        <h3>7.2 En CPU</h3>
+        <pre><code>pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu</code></pre>
+
+        <h3>7.3 Vérifier la détection GPU</h3>
+        <pre><code>python -c "import torch; print('CUDA available:', torch.cuda.is_available()); print('Device:', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU only')"</code></pre>
+
+        <h2 id="deps">8) Installer les dépendances de l’interface</h2>
+        <pre><code>pip install gradio
+pip install TTS</code></pre>
+
+        <h2 id="script">9) Ajouter le script</h2>
+        <p class="muted">
+          Place <code>xtts_web_ui_pro.py</code> dans <code>C:\TTS</code>.
+        </p>
+
+        <pre><code>C:\TTS\
+  ├─ venv\
+  ├─ xtts_web_ui_pro.py
+  └─ outputs\   (créé automatiquement)</code></pre>
+
+        <h2 id="run">10) Lancer l’interface</h2>
+        <pre><code>cd C:\TTS
+.\venv\Scripts\Activate.ps1
+python xtts_web_ui_pro.py</code></pre>
+
+        <div class="callout small">
+          <span class="badge ok">Résultat attendu</span>
+          <div class="muted">
+            Le navigateur s’ouvre sur <code>http://127.0.0.1:7860</code>.
+            Sinon, ouvre l’URL manuellement.
+          </div>
+        </div>
+
+        <h2 id="voice">11) Préparer ta voix (WAV)</h2>
+        <ul>
+          <li>Commence avec <strong>30–60 secondes</strong>.</li>
+          <li>Idéal : <strong>1–2 minutes propres</strong>.</li>
+          <li>Format recommandé : <strong>WAV 44.1 kHz ou 48 kHz</strong>, mono.</li>
+          <li>Environnement silencieux, distance micro stable.</li>
+        </ul>
+
+        <div class="callout small">
+          <span class="badge warn">Important</span>
+          <span class="muted">
+            Clone uniquement ta propre voix ou une voix explicitement autorisée.
+          </span>
+        </div>
+
+        <h2 id="simple">12) Réglages simples (conseillés)</h2>
+        <ul>
+          <li><strong>Similarité</strong> : 80–90</li>
+          <li><strong>Style</strong> : 20–35 (cours/narration)</li>
+          <li><strong>Stabilité</strong> : 50–70</li>
+          <li><strong>Vitesse</strong> : 103–108</li>
+        </ul>
+
+        <h2 id="depannage">13) Dépannage rapide</h2>
+        <ul>
+          <li>Si c’est lent : normal en CPU.</li>
+          <li>Si erreur de dépendances : réinstalle dans le venv.</li>
+        </ul>
+
+        <pre><code>pip install --upgrade pip
+pip install gradio TTS</code></pre>
+
+      </main>
+
+      <!-- Colonne latérale -->
+      <aside>
+        <div class="card">
+          <h2>Sommaire</h2>
+          <div class="toc small">
+            <a href="#objectif"><span>1.</span> Résultat attendu</a>
+            <a href="#prerequis"><span>2.</span> Prérequis</a>
+            <a href="#python"><span>3.</span> Python 3.11</a>
+            <a href="#dossier"><span>4.</span> Dossier projet</a>
+            <a href="#venv"><span>5.</span> Environnement virtuel</a>
+            <a href="#pip"><span>6.</span> Mise à jour pip</a>
+            <a href="#torch"><span>7.</span> Installer PyTorch</a>
+            <a href="#deps"><span>8.</span> Dépendances UI</a>
+            <a href="#script"><span>9.</span> Script</a>
+            <a href="#run"><span>10.</span> Lancement</a>
+            <a href="#voice"><span>11.</span> WAV de référence</a>
+            <a href="#simple"><span>12.</span> Réglages simples</a>
+            <a href="#depannage"><span>13.</span> Dépannage</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Checklist avant évaluation</h2>
+          <ul class="small">
+            <li>✅ Python 3.11 installé</li>
+            <li>✅ venv activé</li>
+            <li>✅ PyTorch installé (CPU/GPU)</li>
+            <li>✅ <code>pip install gradio TTS</code></li>
+            <li>✅ <code>xtts_web_ui_pro.py</code> à la racine</li>
+            <li>✅ WAV de référence propre</li>
+            <li>✅ UI accessible sur 7860</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Ressources</h2>
+          <ul class="small">
+            <li><a href="./faq.html">FAQ du projet</a></li>
+            <li><a href="../INSTALLATION_ETUDIANTS.md">Version Markdown</a></li>
+            <li><a href="../FAQ.md">FAQ Markdown</a></li>
+            <li><a href="../README.md">README (GitHub)</a></li>
+          </ul>
+          <p class="muted small">
+            Site auteur : <a href="https://www.mohamedelafrit.com">www.mohamedelafrit.com</a>
+          </p>
+        </div>
+      </aside>
+
+    </div>
+
+    <div class="footer">
+      © 2025 Mohamed Amine EL AFRIT — Projet sous licence CC BY 4.0
+    </div>
+  </div>
+</body>
+</html>

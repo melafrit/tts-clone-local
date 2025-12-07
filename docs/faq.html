@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ — XTTS v2 Clonage vocal local</title>
+  <meta name="description" content="FAQ complète pour l'interface web locale de clonage vocal XTTS v2 sous Windows." />
+
+  <!-- Optionnel : si tu as un styles.css global dans /docs -->
+  <!-- <link rel="stylesheet" href="styles.css" /> -->
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --panel:#111827;
+      --muted:#94a3b8;
+      --text:#f8fafc;
+      --accent:#38bdf8;
+      --accent-2:#a78bfa;
+      --border:rgba(255,255,255,.08);
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+      --code:#0b1020;
+      --ok:#22c55e;
+      --warn:#f59e0b;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(56,189,248,.18), transparent 55%),
+        radial-gradient(900px 500px at 90% 0%, rgba(167,139,250,.18), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .container{max-width:980px; margin:0 auto; padding:28px 20px 80px}
+
+    .nav{
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+      padding:14px 18px; background:rgba(255,255,255,.04);
+      border:1px solid var(--border); border-radius:var(--radius);
+      backdrop-filter: blur(8px);
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; font-size:12px; color:var(--muted);
+      border:1px solid var(--border); border-radius:999px;
+      background:rgba(255,255,255,.03);
+    }
+    .nav-links{display:flex; gap:10px; flex-wrap:wrap}
+    .nav-links a{
+      padding:6px 10px; border-radius:10px; border:1px solid transparent;
+      color:var(--text); opacity:.9; font-size:12.5px;
+    }
+    .nav-links a:hover{
+      border-color:var(--border); background:rgba(255,255,255,.04);
+      text-decoration:none;
+    }
+
+    .hero{
+      margin-top:22px;
+      padding:26px 26px 18px;
+      background:linear-gradient(135deg, rgba(56,189,248,.10), rgba(167,139,250,.10));
+      border:1px solid var(--border);
+      border-radius:calc(var(--radius) + 6px);
+      box-shadow:var(--shadow);
+    }
+    .hero h1{margin:0 0 6px; font-size:30px}
+    .hero p{margin:6px 0 0; color:var(--muted)}
+
+    .card{
+      margin-top:18px;
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:20px 20px 18px;
+      box-shadow:var(--shadow);
+    }
+
+    details{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.035);
+      border-radius:12px;
+      padding:12px 12px 10px;
+      margin:10px 0;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:600;
+    }
+    summary::marker{color:var(--accent)}
+    .muted{color:var(--muted)}
+    .small{font-size:12.5px}
+
+    pre{
+      background:var(--code);
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:12px 12px;
+      overflow:auto;
+      margin:10px 0 12px;
+    }
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size:12.5px}
+
+    .badge{
+      display:inline-flex; align-items:center;
+      padding:4px 8px; font-size:11px; font-weight:600;
+      border-radius:8px; border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+    }
+    .ok{color:var(--ok)}
+    .warn{color:var(--warn)}
+
+    .footer{
+      margin-top:28px;
+      text-align:center; color:var(--muted);
+      font-size:12.5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="nav">
+      <div class="brand">
+        <span class="pill">XTTS v2</span>
+        <span>FAQ — Clonage vocal local</span>
+      </div>
+      <div class="nav-links">
+        <a href="./index.html">Accueil</a>
+        <a href="./installation-etudiants.html">Installation</a>
+        <a href="./faq.html">FAQ</a>
+        <a href="../README.md">README</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <h1>FAQ — Questions fréquentes</h1>
+      <p>
+        Réponses courtes, concrètes et orientées usage réel pour l’interface locale
+        de clonage vocal basée sur XTTS v2.
+      </p>
+      <p class="muted small">
+        Auteur : Mohamed Amine EL AFRIT — <a href="https://www.mohamedelafrit.com">www.mohamedelafrit.com</a>
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Général</h2>
+
+      <details>
+        <summary>À quoi sert exactement ce projet ?</summary>
+        <div class="muted">
+          À lancer une interface web locale sur Windows pour générer de la voix
+          à partir d’un texte et d’un fichier audio de référence, avec XTTS v2.
+          L’objectif est pédagogique et pratique : comprendre les réglages, tester la qualité,
+          et produire des audios en local.
+        </div>
+      </details>
+
+      <details>
+        <summary>Est-ce un entraînement complet d’un nouveau modèle ?</summary>
+        <div class="muted">
+          Non. On utilise un modèle pré-entraîné (XTTS v2) et on réalise un clonage
+          par référence audio (voice cloning par prompt/conditionnement),
+          ce qui est bien plus léger qu’un fine-tuning.
+        </div>
+      </details>
+
+      <details>
+        <summary>CPU ou GPU : qu’est-ce que ça change ?</summary>
+        <div class="muted">
+          Le rendu final peut être similaire, mais le <strong>temps de génération</strong>
+          est bien plus rapide avec une GPU NVIDIA.
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Installation</h2>
+
+      <details>
+        <summary>Quelle version de Python dois-je utiliser ?</summary>
+        <div class="muted">
+          <strong>Python 3.11.x</strong> est recommandé pour éviter les conflits de dépendances.
+        </div>
+      </details>
+
+      <details>
+        <summary>J’ai une erreur à l’activation du venv dans PowerShell</summary>
+        <div class="muted">
+          Exécute une fois :
+          <pre><code>Set-ExecutionPolicy -Scope CurrentUser RemoteSigned</code></pre>
+          Puis :
+          <pre><code>.\venv\Scripts\Activate.ps1</code></pre>
+        </div>
+      </details>
+
+      <details>
+        <summary>PyTorch ne détecte pas ma GPU</summary>
+        <div class="muted">
+          Vérifie :
+          <pre><code>python -c "import torch; print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU only')"</code></pre>
+          Si besoin, réinstalle PyTorch GPU :
+          <pre><code>pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118</code></pre>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Qualité audio et clonage</h2>
+
+      <details>
+        <summary>Quelle durée de voix de référence faut-il ?</summary>
+        <div class="muted">
+          <span class="badge ok">Bon point de départ</span>
+          <div class="muted small">
+            30–60 secondes propres.
+          </div>
+          <br/>
+          <span class="badge ok">Recommandé</span>
+          <div class="muted small">
+            1–2 minutes, enregistrées sans bruit ni réverbération.
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Quel format de fichier est le meilleur ?</summary>
+        <div class="muted">
+          <strong>WAV</strong> recommandé, 44.1 kHz ou 48 kHz, mono.
+        </div>
+      </details>
+
+      <details>
+        <summary>Pourquoi ma voix clonée semble “différente” ?</summary>
+        <div class="muted">
+          Causes fréquentes :
+          <ul>
+            <li>WAV trop court ou bruité</li>
+            <li>Texte demandé dans une langue très différente de la voix d’origine</li>
+            <li>Similarité trop basse</li>
+            <li>Température / expressivité trop élevée</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Quels réglages simples recommandez-vous ?</summary>
+        <div class="muted">
+          Pour une voix de cours claire et stable :
+          <ul>
+            <li><strong>Similarité</strong> : 80–90</li>
+            <li><strong>Style</strong> : 20–35</li>
+            <li><strong>Stabilité</strong> : 50–70</li>
+            <li><strong>Vitesse</strong> : 103–108</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Usage responsable</h2>
+
+      <details>
+        <summary>Puis-je cloner la voix de quelqu’un d’autre ?</summary>
+        <div class="muted">
+          Uniquement si tu as une autorisation explicite.
+          L’usage attendu dans ce cadre pédagogique est de cloner ta propre voix.
+        </div>
+      </details>
+
+      <details>
+        <summary>Dois-je signaler l’usage d’une voix synthétique ?</summary>
+        <div class="muted">
+          En contexte public, professionnel ou éducatif, c’est une bonne pratique.
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Liens utiles</h2>
+      <ul class="small">
+        <li><a href="./installation-etudiants.html">Guide d’installation (HTML)</a></li>
+        <li><a href="../INSTALLATION_ETUDIANTS.md">Guide d’installation (Markdown)</a></li>
+        <li><a href="../FAQ.md">FAQ (Markdown)</a></li>
+        <li><a href="../README.md">README du projet</a></li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      © 2025 Mohamed Amine EL AFRIT — Projet sous licence CC BY 4.0
+    </div>
+
+  </div>
+</body>
+</html>
